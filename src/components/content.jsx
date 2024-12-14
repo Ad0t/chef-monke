@@ -7,7 +7,8 @@ import { getRecipeFromMistral } from "./ai"
 
 function Content() {
 
-    const [ingredients, setIngredients] = useState(["all the main spices", "pasta", "ground beef", "tomato paste"])
+    // const [ingredients, setIngredients] = useState(["all the main spices", "pasta", "ground beef", "tomato paste"])
+    const [ingredients, setIngredients] = useState([])
 
     const [recipe, setRecipe] = useState("")
 
@@ -15,7 +16,7 @@ function Content() {
     async function getRecipe () {
         const recipeMarkdown = await getRecipeFromMistral(ingredients)
         setRecipe(recipeMarkdown)
-        // console.log(recipeMarkdown)
+        console.log(recipeMarkdown)
     }
  
     function handleSubmit(event) {

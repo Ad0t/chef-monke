@@ -1,5 +1,5 @@
 // import React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import './content.css'
 import Recipe from "./recipe"
 import IngredientsList from "./ingredientsList"
@@ -11,7 +11,13 @@ function Content() {
     const [ingredients, setIngredients] = useState([])
 
     const [recipe, setRecipe] = useState("")
+    const recipeSection = React.useRef(null)
 
+    useEffect(() => {
+        if (recipe !== "" && recipeSection.current !== null) {
+            recipeSection.current.scrollIntoView({behaviour: "smooth"})
+        }
+    }, [recipe]) 
 
     async function getRecipe () {
         const recipeMarkdown = await getRecipeFromMistral(ingredients)
@@ -40,7 +46,13 @@ function Content() {
                 />
                 <button>Add ingredient</button>
             </form>
-            {ingredients.length > 0 ? <IngredientsList ingredients={ingredients} getRecipe={getRecipe} /> : null}
+            {ingredients.length > 0 ? 
+                <IngredientsList
+                    ref={recipeSection} 
+                    ingredients={ingredients} 
+                    getRecipe={getRecipe} 
+                /> 
+            : null}
             {recipe ? <Recipe recipe={recipe} /> : null}
         </main>
     )

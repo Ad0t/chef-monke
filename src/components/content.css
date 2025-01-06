@@ -38,3 +38,6 @@ form > button::before {
     content: "+";
     margin-right: 5px;
 }
+.recipeBox {
+    margin-bottom: 100px;
+}

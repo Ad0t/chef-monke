@@ -1,8 +1,12 @@
 import './ingredientsList.css'
 
 function IngredientsList(props) {
+    const capitalizeFirstLetter = (str) => {
+        return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    };
+
     const ingredientsListItems = props.ingredients.map(ingredient => (
-        <li key={ingredient}>{ingredient}</li>
+        <li key={ingredient}>{capitalizeFirstLetter(ingredient)}</li>
     ))
 
     return (
@@ -18,7 +22,7 @@ function IngredientsList(props) {
                     </div>
                     <button onClick={props.getRecipe}>Get a recipe</button>
                 </div> : null}
-            </section>
+        </section>
     )
 }
 

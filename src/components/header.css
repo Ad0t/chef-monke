@@ -1,5 +1,6 @@
 .header {
     width: 98vw;
+    min-width: 620px;
     padding: 0 1vw;
     height: 6rem;
     display: flex;
@@ -14,7 +15,7 @@
     gap: 11px;
 }
 .header-box > img {
-    width: 50px;
+    width: 60px;
 }
 .header-box > h1 {
     font-weight: 500;

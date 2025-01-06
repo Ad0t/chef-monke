@@ -1,0 +1,18 @@
+/* p:nth-of-type(3), p:nth-of-type(2) {
+    color: red;
+    font-size: 20px;
+} */
+.recipeBox {
+    margin-bottom: 50px;
+}
+.recipeBox > ul, .recipeBox > ol {
+    margin: 15px 0;
+}
+.recipeBox > ol > li, .recipeBox > ul > li{
+    margin: 7px 0;
+}
+.recipeBox > p:nth-last-of-type(1) {
+    color: orangered;
+    font-size: 20px;
+    font-weight: bold;
+}

@@ -36,8 +36,19 @@ function Content() {
         const formData = new FormData(formEl)
         const newIngredient = formData.get("ingredient")
         // ingredients.push(newIngredient)
-        if (newIngredient) {
-            setIngredients((prevIngredients) => [...prevIngredients, newIngredient]);
+        if (newIngredient && newIngredient.trim() !== "") {
+            const trimmedIngredient = newIngredient.trim();
+
+            const isDuplicate = ingredients.some(
+                (ingredient) => ingredient.toLowerCase() === trimmedIngredient.toLowerCase()
+            );
+
+            if (!isDuplicate) {
+                setIngredients((prevIngredients) => [...prevIngredients, trimmedIngredient]);
+            } else {
+                alert("This ingredient is already in the list!");
+            }
+            // setIngredients((prevIngredients) => [...prevIngredients, newIngredient]);
         }
         formEl.reset()
         setInputValue("");

@@ -11,8 +11,8 @@
 .recipeBox > ol > li, .recipeBox > ul > li{
     margin: 7px 0;
 }
-.recipeBox > p:nth-last-of-type(1) {
+/* .recipeBox > p:nth-last-of-type(1) {
     color: orangered;
     font-size: 20px;
     font-weight: bold;
-}
+} */

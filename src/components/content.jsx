@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import './content.css'
 import Recipe from "./recipe"
 import IngredientsList from "./ingredientsList"
+import CharacterChanger from "./loading";
 import { getRecipeFromMistral } from "./ai"
 
 function Content() {
@@ -11,6 +12,7 @@ function Content() {
     const [ingredients, setIngredients] = useState([])
 
     const [recipe, setRecipe] = useState("")
+    const [isFetchingRecipe, setIsFetchingRecipe] = useState(false);
     const recipeSection = React.useRef(null)
 
     useEffect(() => {
@@ -20,8 +22,10 @@ function Content() {
     }, [recipe]) 
 
     async function getRecipe () {
+        setIsFetchingRecipe(true);
         const recipeMarkdown = await getRecipeFromMistral(ingredients)
-        setRecipe(recipeMarkdown)
+        setRecipe(recipeMarkdown);
+        setIsFetchingRecipe(false);
         console.log(recipeMarkdown)
     }
  
@@ -53,6 +57,7 @@ function Content() {
                     getRecipe={getRecipe} 
                 /> 
             : null}
+            {isFetchingRecipe ? <CharacterChanger /> : null}
             {recipe ? <Recipe recipe={recipe} /> : null}
         </main>
     )

@@ -2,6 +2,7 @@ main {
     width: 80%;
     margin: 0 10%;
     min-width: 500px;
+    user-select: none;
 }
 form {
     width: 500px;

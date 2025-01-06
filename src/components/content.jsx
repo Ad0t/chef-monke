@@ -13,6 +13,7 @@ function Content() {
 
     const [recipe, setRecipe] = useState("")
     const [isFetchingRecipe, setIsFetchingRecipe] = useState(false);
+    const [inputValue, setInputValue] = useState("");
     const recipeSection = React.useRef(null)
 
     useEffect(() => {
@@ -35,8 +36,11 @@ function Content() {
         const formData = new FormData(formEl)
         const newIngredient = formData.get("ingredient")
         // ingredients.push(newIngredient)
-        setIngredients(prevIngredients => [...prevIngredients, newIngredient])
+        if (newIngredient) {
+            setIngredients((prevIngredients) => [...prevIngredients, newIngredient]);
+        }
         formEl.reset()
+        setInputValue("");
     }
 
     return (
@@ -47,6 +51,7 @@ function Content() {
                     placeholder='e.g. oregano'
                     aria-label='Add ingredient'
                     name='ingredient'
+                    required
                 />
                 <button>Add ingredient</button>
             </form>

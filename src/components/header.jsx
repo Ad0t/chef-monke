@@ -1,5 +1,5 @@
 import './header.css'
-import chefClaudeIcon from '/src/assets/chef-claude-icon.png'
+
 import chefMonkeIcon from '/src/assets/chef-monke.png'
 
 

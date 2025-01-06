@@ -2,12 +2,6 @@ main {
     width: 80%;
     margin: 0 10%;
     min-width: 500px;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    /* margin-top: 40px; */
-    /* height: 38px; */
-    /* background-color: red; */
 }
 form {
     width: 500px;
